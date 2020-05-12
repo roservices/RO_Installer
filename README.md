@@ -10,6 +10,6 @@
 <h3 align="center">Installation</h3>
 To Auto-Install rAthena, connect to your Debian server as root then run the following command:
 <p align="center">
-<kbd>apt-get update &amp;&amp; apt-get -y install curl &amp;&amp; cd /home &amp;&amp; curl -o roservices -L https://git.io/fh99H &amp;&amp; sh roservices</kbd>
+<kbd>apt-get update &amp;&amp; apt-get -y install curl &amp;&amp; cd /home &amp;&amp; curl -o roservices -L https://git.io/Jf8Cq &amp;&amp; sh roservices</kbd>
 </p>
 This command changes your session to the home directory, downloads the latest version of rAthena via Auto-Installer, and runs the installation script.
