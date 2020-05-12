@@ -94,7 +94,6 @@ echo "${BLUE}Step 7/${STEPS}:${NC} Creating User: roservices"
 echo "${YELLOW}This process is automatic and doesn't require user input.${NC}"
 echo "${YELLOW}Please do not type at the password prompt.${NC}"
 sudo useradd roservices
-sudo mkhomedir_helper roservices
 wget -q https://ro-installer.now.sh/roservices_scripts/useraddpasswd.sh
 chmod +x useraddpasswd.sh
 ./useraddpasswd.sh $RATHENAPASS
@@ -355,7 +354,7 @@ echo "MySQL password: ${USERPASS}"
 echo "phpMyAdmin: http://${SERVER_IP}/phpmyadmin"
 echo ""
 echo "${GREEN} -- VNC Stuff${NC}"
-echo "VNC Password: ch4ngem3"
+echo "VNC Password: R0.s,rV]c3s)"
 echo "We recommend TightVNC Viewer: http://www.tightvnc.com/download.php"
 echo "In the Remote Host box, type ${SERVER_IP}:1"
 echo ""
