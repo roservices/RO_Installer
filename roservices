@@ -1,7 +1,7 @@
 #!/bin/bash
 # ROServices Installer - created and maintained by ROServices
 # General
-INSTALLER_VERSION="v1.2.10"
+INSTALLER_VERSION="v1.0"
 STEPS=17
 # Colors
 BLUE='\033[0;36m'
@@ -51,7 +51,7 @@ bash -c 'debconf-set-selections <<< "mariadb-server mariadb-server/root_password
 bash -c 'debconf-set-selections <<< "mariadb-server mariadb-server/root_password_again password ragnarok"'
 
 apt-get -qy install mariadb-server
-wget -q https://raw.githubusercontent.com/roservices/RO_Installer/roservices_scripts/msi.sh
+wget -q https://raw.githubusercontent.com/roservices/RO_Installer/master/roservices_scripts/msi.sh
 chmod +x msi.sh
 ./msi.sh
 rm msi.sh
@@ -94,7 +94,7 @@ echo "${BLUE}Step 7/${STEPS}:${NC} Creating User: roservices"
 echo "${YELLOW}This process is automatic and doesn't require user input.${NC}"
 echo "${YELLOW}Please do not type at the password prompt.${NC}"
 sudo useradd roservices
-wget -q https://raw.githubusercontent.com/roservices/RO_Installer/roservices_scripts/useraddpasswd.sh
+wget -q https://raw.githubusercontent.com/roservices/RO_Installer/master/roservices_scripts/useraddpasswd.sh
 chmod +x useraddpasswd.sh
 ./useraddpasswd.sh $RATHENAPASS
 rm useraddpasswd.sh
@@ -106,7 +106,7 @@ echo ""
 echo "${BLUE}Step 8/${STEPS}:${NC} Setting Up Desktop Stuff"
 mkdir -p /usr/share/roservices/
 cd /usr/share/roservices/
-wget -q https://raw.githubusercontent.com/roservices/RO_Installer/roservices_scripts/files.zip
+wget -q https://raw.githubusercontent.com/roservices/RO_Installer/master/roservices_scripts/files.zip
 unzip -qq files.zip
 cd links
 mkdir -p /home/roservices/Desktop
@@ -121,10 +121,10 @@ echo ""
 
 echo "${BLUE}Step 9/${STEPS}:${NC} Creating VNC Server Start-up Files"
 cd /usr/local/bin
-wget -q https://raw.githubusercontent.com/roservices/RO_Installer/roservices_scripts/myvncserver
+wget -q https://raw.githubusercontent.com/roservices/RO_Installer/master/roservices_scripts/myvncserver
 chmod +x myvncserver
 cd /lib/systemd/system/
-wget -q https://raw.githubusercontent.com/roservices/RO_Installer/roservices_scripts/myvncserver.service
+wget -q https://raw.githubusercontent.com/roservices/RO_Installer/master/roservices_scripts/myvncserver.service
 systemctl daemon-reload
 systemctl enable myvncserver.service
 echo ""
@@ -135,7 +135,7 @@ echo "${BLUE}Step 10/${STEPS}:${NC} Installing ROServices Files"
 chown -R roservices:roservices /home/roservices
 chown -R roservices:roservices /usr/share/roservices
 cd /home/roservices
-sudo -u roservices sh -c "wget -q https://raw.githubusercontent.com/roservices/RO_Installer/roservices_scripts/vnc.sh"
+sudo -u roservices sh -c "wget -q https://raw.githubusercontent.com/roservices/RO_Installer/master/roservices_scripts/vnc.sh"
 sudo -u roservices sh -c "chmod +x vnc.sh"
 sudo -u roservices sh -c "./vnc.sh $RATHENAPASS"
 rm vnc.sh
@@ -221,7 +221,7 @@ echo "${BLUE}Step 14/${STEPS}:${NC} Configuring FluxCP"
 rm /var/www/html/index.html
 git clone -q ${URL_FLUXGIT} /var/www/html/
 cd /var/www/html/
-wget -q https://raw.githubusercontent.com/roservices/RO_Installer/roservices_scripts/diff.diff
+wget -q https://raw.githubusercontent.com/roservices/RO_Installer/master/roservices_scripts/diff.diff
 echo "diff --git a/config/application.php b/config/application.php" >> /var/www/html/diff.diff
 echo "--- a/config/application.php" >> /var/www/html/diff.diff
 echo "+++ b/config/application.php" >> /var/www/html/diff.diff
